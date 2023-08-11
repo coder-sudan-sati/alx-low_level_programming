@@ -1,0 +1,19 @@
+#include<studio.h>
+int main (void)
+{
+  float n ;
+  scanf("%d",&n);
+  if (c>0)
+    {
+    printf("is positive");
+    }
+  if(c==0)
+    {
+      printf("is zero");
+    }
+  if (c<0)
+    {
+      printf("is negative");
+    }
+  return (0);
+}
