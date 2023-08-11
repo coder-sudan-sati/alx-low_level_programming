@@ -14,6 +14,6 @@ int main(void)
 
         for (letter = "A" ;letter <= "Z"; letter++)
         	 putcher(letter);
-
-	       return (0):
+        putchar('\n');
+	return (0);
 }
