@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <sati.h>
 
 int main(void)
 {
