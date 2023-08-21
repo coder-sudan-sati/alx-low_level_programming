@@ -9,21 +9,18 @@
   */
 void rev_string(char *s)
 {
-   int len = strlen(s);
-   char *start = s;
-   char *end = s + len - 1;
+    int len = strlen(s);
+    char *start = s;
+    char *end = s + len - 1;
    
-   while (start < end)
-    {
-      char temp = *start;
-      *start = *end;
-      *end = temp;
-      
-      start++;
-      end--;
-   }
+    while (start < end)
+     {
+       char temp = *start;
+       *start = *end;
+       *end = temp;      
+       start++;
+       end--;
+     }
    
-   s[len] = '\0';
+    s[len] = '\0';
 }
-
-
