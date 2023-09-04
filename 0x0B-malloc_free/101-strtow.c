@@ -25,6 +25,7 @@ char **strtow(char *str)
 	{
 		array[i] = str[k];
 		i++;
+		_putchar(array[k]
 	}
 	array[i] = '\0';
 	return (NULL);
