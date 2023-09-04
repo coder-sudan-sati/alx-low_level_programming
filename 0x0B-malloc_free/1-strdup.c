@@ -1,5 +1,5 @@
-#include "main.h" 
- #include <stdio.h> 
+#include "main.h"
+#include <stdio.h>
   
  /** 
   * string_nconcat - concatenate 2 strings, only n bytes of s2 
