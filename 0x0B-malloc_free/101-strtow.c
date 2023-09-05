@@ -1,32 +1,48 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-/**
- * strtow - concatenates arguments.
- * @str: String to be splitted.
- *
- * Return: a pointer to array of String.
- */
-char **strtow(char *str)
-{
-	char *array = NULL;
-	unsigned int i = 0, j = 0, k;
 
-	if (strncmp(str, "", 1) || str == NULL)
-		return (NULL);
-	array = malloc((i + j + 1) * sizeof(char));
-	if (array == NULL)
-		return (NULL);
-	for (k = 0; k < i; k++)
-		array[k] = str[k];
-	i = k;
-	for (k = 0; k < j; k++)
-	{
-		array[i] = str[k];
-		i++;
-		_putchar(array[k]);
-	}
-	array[i] = '\0';
-	return (NULL);
+char **strtow(char *str) {
+    if (str == NULL || strlen(str) == 0) {
+        return NULL;
+    }
+    
+    int i, j, k, len = strlen(str), word_count = 0;
+    for (i = 0; i < len; i++) {
+        if (str[i] != ' ' && (i == 0 || str[i-1] == ' ')) {
+            word_count++;
+        }
+    }
+    
+    char **words = (char **)malloc((word_count+1) * sizeof(char *));
+    if (words == NULL) {
+        return NULL;
+    }
+    
+    int word_len;
+    for (i = 0, j = 0; i < word_count; i++) {
+        while (str[j] == ' ') {
+            j++;
+        }
+        word_len = 0;
+        k = j;
+        while (str[k] != ' ' && k < len) {
+            word_len++;
+            k++;
+        }
+        words[i] = (char *)malloc((word_len+1) * sizeof(char));
+        if (words[i] == NULL) {
+            for (j = 0; j < i; j++) {
+                free(words[j]);
+            }
+            free(words);
+            return NULL;
+        }
+        strncpy(words[i], &str[j], word_len);
+        words[i][word_len] = '\0';
+        j = k;
+    }
+    words[word_count] = NULL;
+    
+    return words;
 }
