@@ -1,41 +1,23 @@
-#include "3-calc.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "3-calc.h"
 
 /**
- * main - main function
- * @argc: argument count
- * @argv: string of arguments in array
- * Return: 0
+ * main - performs simple operations
+ * @argc: number of command line arguments
+ * @argv: array of command line arguments
+ *
+ * Return: 0 on success, 98 on wrong number of arguments,
+ * 99 on invalid operator, 100 on division/modulo by 0
  */
-
 int main(int argc, char *argv[])
 {
-	int a, b;
-	int (*o)(int, int);
+    int num1, num2, result;
+    int (*op_func)(int, int);
 
-	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-	if (argv[2][1] != '\0')
-	{
-		printf("Error\n");
-		exit(99);
-	}
-
-	o = get_op_func(argv[2]);
-	if (o == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
-
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
-	printf("%d\n", o(a, b));
-
-	return (0);
-}
+    if (argc != 4)
+    {
+        _putchar("Error
+");
+        return (98);
+    }
