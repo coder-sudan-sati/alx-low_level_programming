@@ -1,41 +1,67 @@
-#include "3-calc.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - main function
- * @argc: argument count
- * @argv: string of arguments in array
- * Return: 0
+ * op_add - addition operator
+ * @a: first int
+ * @b: second int
+ * Return: sum of 2 numbers
  */
-
-int main(int argc, char *argv[])
+int op_add(int a, int b)
 {
-	int a, b;
-	int (*o)(int, int);
+	return (a + b);
+}
 
-	if (argc != 4)
+/**
+ * op_sub - subtraction operator
+ * @a: first in
+ * @b: second int
+ * Return: difference of 2 numbers
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+
+/**
+ * op_mul - product of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: product of the numbers
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
+ * op_div - division of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: result of the division of the numbers
+ */
+int op_div(int a, int b)
+{
+	if (b == 0)
 	{
 		printf("Error\n");
-		exit(98);
+		exit(100);
 	}
-	if (argv[2][1] != '\0')
+	return (a / b);
+}
+
+/**
+ * op_mod - get remainder of the division of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: remainder of division of the numbers
+ */
+int op_mod(int a, int b)
+{
+	if (b == 0)
 	{
 		printf("Error\n");
-		exit(99);
+		exit(100);
 	}
-
-	o = get_op_func(argv[2]);
-	if (o == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
-
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
-	printf("%d\n", o(a, b));
-
-	return (0);
+	return (a % b);
 }
